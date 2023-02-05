@@ -1,9 +1,8 @@
 package com.emrekp.tividir;
 
-import java.util.ArrayList;
-import java.util.Comparator;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +31,7 @@ public class TividController {
 
   @PostMapping("/send")
   public ResponseEntity<Success> send(@RequestBody Tivid tivid) {
+    tivid.setSentAt(ZonedDateTime.now(ZoneOffset.UTC));
     repository.save(tivid);
 
     return ResponseEntity.created(null).body(new Success(true));
