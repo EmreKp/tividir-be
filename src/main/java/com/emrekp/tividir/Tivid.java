@@ -12,7 +12,7 @@ public class Tivid {
   private String text;
   private ZonedDateTime sentAt;
 
-  public String id() {
+  public String getId() {
     return id;
   }
 
@@ -22,7 +22,7 @@ public class Tivid {
     return this;
   }
 
-  public String text() {
+  public String getText() {
     return text;
   }
 
@@ -32,7 +32,7 @@ public class Tivid {
     return this;
   }
 
-  public ZonedDateTime sentAt() {
+  public ZonedDateTime getSentAt() {
     return sentAt;
   }
 
