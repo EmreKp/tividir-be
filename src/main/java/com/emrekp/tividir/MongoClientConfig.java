@@ -4,18 +4,17 @@ import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.mongodb.config.AbstractMongoClientConfiguration;
 import org.springframework.data.mongodb.core.convert.MongoCustomConversions;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.session.data.mongo.config.annotation.web.http.EnableMongoHttpSession;
 
 @Configuration
 @EnableMongoRepositories(basePackageClasses = TividRepository.class)
+@EnableMongoHttpSession(maxInactiveIntervalInSeconds = 24 * 60 * 60) // auto logout 1 days after last activity
 public class MongoClientConfig extends AbstractMongoClientConfiguration {
 
   private static final String DB_NAME = "tividir";
