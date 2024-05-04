@@ -10,6 +10,8 @@ public class Tivid {
   private String id;
 
   private String text;
+  private String author;
+
   private ZonedDateTime sentAt;
 
   public String getId() {
@@ -28,6 +30,16 @@ public class Tivid {
 
   public Tivid setText(String text) {
     this.text = text;
+
+    return this;
+  }
+
+  public String getAuthor() {
+    return author;
+  }
+
+  public Tivid setAuthor(String author) {
+    this.author = author;
 
     return this;
   }
